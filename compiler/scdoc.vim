@@ -12,5 +12,5 @@ if exists(':CompilerSet') != 2
     command -nargs=* CompilerSet setlocal <args>
 endif
 
-CompilerSet makeprg=scdoc\ <\ %
-CompilerSet errorformat=Error\ at\ %l:%c:%m
+CompilerSet makeprg=scdoc\ <\ %\ 2>&1
+CompilerSet errorformat=Error\ at\ %l:%c:\ %m,%-G%.%#
