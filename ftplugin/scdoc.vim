@@ -18,6 +18,4 @@ setlocal shiftwidth=8
 setlocal softtabstop=8
 setlocal textwidth=80
 
-compiler scdoc
-
-let b:undo_ftplugin = 'setl com< cms< fo< et< sw< sts< tw< mp< efm<'
+let b:undo_ftplugin = 'setl com< cms< fo< et< sw< sts< tw<'
