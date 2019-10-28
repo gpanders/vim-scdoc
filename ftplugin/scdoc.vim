@@ -17,6 +17,11 @@ setlocal noexpandtab
 setlocal shiftwidth=8
 setlocal softtabstop=8
 setlocal textwidth=80
-setlocal conceallevel=2
 
-let b:undo_ftplugin = 'setl com< cms< fo< et< sw< sts< tw< cole<'
+let b:undo_ftplugin = 'setl com< cms< fo< et< sw< sts< tw<'
+
+if has('conceal')
+    setlocal conceallevel=2
+    let b:undo_ftplugin .= ' cole<'
+endif
+
