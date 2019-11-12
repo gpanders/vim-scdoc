@@ -23,7 +23,7 @@ syntax match scdocListMarker "^\s*-\%(\s\+\S\)\@="
 
 syntax region scdocBold concealends matchgroup=scdocBoldDelimiter start="\\\@<!\*" end="\\\@<!\*"
 syntax region scdocUnderline concealends matchgroup=scdocUnderlineDelimiter start="\<\\\@<!_" end="\\\@<!_\>"
-syntax region scdocPre start="^\t*```" end="^\t*```"
+syntax region scdocPre matchgroup=scdocPreDelimiter start="^\t*```" end="^\t*```"
 
 hi link scdocFirstLineValid     Comment
 hi link scdocComment            Comment
@@ -35,6 +35,8 @@ hi link scdocFirstLineError     Error
 hi link scdocCommentError       Error
 hi link scdocHeaderError        Error
 hi link scdocIndentError        Error
+
+hi link scdocPreDelimiter       Delimiter
 
 hi scdocBold term=bold cterm=bold gui=bold
 hi scdocUnderline term=underline cterm=underline gui=underline
