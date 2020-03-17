@@ -1,6 +1,6 @@
 " Syntax file for scdoc files
 " Maintainer: Greg Anders <greg@gpanders.com>
-" Last Updated: 2019-10-24
+" Last Updated: 2020-03-17
 
 if exists('b:current_syntax')
     finish
@@ -8,7 +8,7 @@ endif
 let b:current_syntax = 'scdoc'
 
 syntax match scdocFirstLineError "\%^.*$"
-syntax match scdocFirstLineValid "\%^\S\+(\d\+)\%(\s\+\"[^"]*\"\%(\s\+\"[^"]*\"\)\=\)\=$"
+syntax match scdocFirstLineValid "\%^\S\+(\d[0-9A-Za-z]*)\%(\s\+\"[^"]*\"\%(\s\+\"[^"]*\"\)\=\)\=$"
 
 syntax region scdocCommentError start="^;\S" end="$" keepend
 syntax region scdocComment start="^; " end="$" keepend
