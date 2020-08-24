@@ -23,6 +23,9 @@ syntax match scdocLineBreak "++$"
 syntax match scdocOrderedListMarker "^\s*\.\%(\s\+\S\)\@="
 syntax match scdocListMarker "^\s*-\%(\s\+\S\)\@="
 
+syntax match scdocTableStartMarker "^[\[|\]][\[\-\]]"
+syntax match scdocTableMarker "^[|:][\[\-\] ]"
+
 syntax region scdocBold concealends matchgroup=scdocBoldDelimiter start="\\\@<!\*" end="\\\@<!\*"
 syntax region scdocUnderline concealends matchgroup=scdocUnderlineDelimiter start="\<\\\@<!_" end="\\\@<!_\>"
 syntax region scdocPre matchgroup=scdocPreDelimiter start="^\t*```" end="^\t*```"
@@ -33,6 +36,8 @@ hi link scdocHeader             Title
 hi link scdocOrderedListMarker  Statement
 hi link scdocListMarker         scdocOrderedListMarker
 hi link scdocLineBreak          Special
+hi link scdocTableMarker        Statement
+hi link scdocTableStartMarker   scdocTableMarker
 
 hi link scdocFirstLineError     Error
 hi link scdocCommentError       Error
