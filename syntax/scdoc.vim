@@ -18,6 +18,8 @@ syntax region scdocHeader start="^#\{1,2}" end="$" keepend
 
 syntax match scdocIndentError "^[ ]\+"
 
+syntax match scdocLineBreak "++$"
+
 syntax match scdocOrderedListMarker "^\s*\.\%(\s\+\S\)\@="
 syntax match scdocListMarker "^\s*-\%(\s\+\S\)\@="
 
@@ -30,6 +32,7 @@ hi link scdocComment            Comment
 hi link scdocHeader             Title
 hi link scdocOrderedListMarker  Statement
 hi link scdocListMarker         scdocOrderedListMarker
+hi link scdocLineBreak          Special
 
 hi link scdocFirstLineError     Error
 hi link scdocCommentError       Error
