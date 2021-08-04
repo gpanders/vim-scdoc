@@ -1,6 +1,6 @@
 " scdoc filetype plugin
 " Maintainer: Greg Anders <greg@gpanders.com>
-" Last Updated: 2020-03-17
+" Last Updated: 2021-08-04
 
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')
@@ -11,7 +11,7 @@ endif
 let b:did_ftplugin = 1
 
 setlocal comments=b:;
-setlocal commentstring=;\ %s
+setlocal commentstring=;%s
 setlocal formatoptions+=t
 setlocal noexpandtab
 setlocal shiftwidth=0
