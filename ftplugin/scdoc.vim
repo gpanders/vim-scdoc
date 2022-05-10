@@ -1,6 +1,7 @@
 " scdoc filetype plugin
 " Maintainer: Gregory Anders <contact@gpanders.com>
 " Last Updated: 2022-05-09
+" Upstream: https://github.com/gpanders/vim-scdoc
 
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')
