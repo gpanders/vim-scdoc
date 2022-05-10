@@ -1,6 +1,6 @@
 " Syntax file for scdoc files
-" Maintainer: Greg Anders <greg@gpanders.com>
-" Last Updated: 2020-03-17
+" Maintainer: Gregory Anders <contact@gpanders.com>
+" Last Updated: 2022-05-09
 
 if exists('b:current_syntax')
     finish
@@ -20,8 +20,8 @@ syntax match scdocIndentError "^[ ]\+"
 
 syntax match scdocLineBreak "++$"
 
-syntax match scdocOrderedListMarker "^\s*\.\%(\s\+\S\)\@="
-syntax match scdocListMarker "^\s*-\%(\s\+\S\)\@="
+syntax region scdocOrderedListItem matchgroup=scdocOrderedListMarker start="^\z(\s*\)\." skip="^\z1  .*$" end="^" contains=ALLBUT,scdocIndentError
+syntax region scdocListItem matchgroup=scdocListMarker start="^\z(\s*\)-" skip="^\z1  .*$" end="^" contains=ALLBUT,scdocIndentError
 
 syntax match scdocTableStartMarker "^[\[|\]][\[\-\]]"
 syntax match scdocTableMarker "^[|:][\[\-\] ]"
