@@ -1,6 +1,6 @@
 " scdoc filetype plugin
-" Maintainer: Greg Anders <greg@gpanders.com>
-" Last Updated: 2021-08-04
+" Maintainer: Gregory Anders <contact@gpanders.com>
+" Last Updated: 2022-05-09
 
 " Only do this when not done yet for this buffer
 if exists('b:did_ftplugin')
@@ -19,8 +19,3 @@ setlocal softtabstop=0
 setlocal textwidth=80
 
 let b:undo_ftplugin = 'setl com< cms< fo< et< sw< sts< tw<'
-
-if has('conceal')
-    setlocal conceallevel=2
-    let b:undo_ftplugin .= ' cole<'
-endif
