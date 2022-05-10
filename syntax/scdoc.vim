@@ -21,33 +21,43 @@ syntax match scdocIndentError "^[ ]\+"
 
 syntax match scdocLineBreak "++$"
 
-syntax region scdocOrderedListItem matchgroup=scdocOrderedListMarker start="^\z(\s*\)\." skip="^\z1  .*$" end="^" contains=ALLBUT,scdocIndentError
-syntax region scdocListItem matchgroup=scdocListMarker start="^\z(\s*\)-" skip="^\z1  .*$" end="^" contains=ALLBUT,scdocIndentError
+syntax region scdocOrderedListItem matchgroup=scdocOrderedListMarker start="^\z(\s*\)\." skip="^\z1  .*$" end="^" contains=scdocBold,scdocUnderline
+syntax region scdocListItem matchgroup=scdocListMarker start="^\z(\s*\)-" skip="^\z1  .*$" end="^" contains=scdocBold,scdocUnderline
 
-syntax match scdocTableStartMarker "^[\[|\]][\[\-\]]"
-syntax match scdocTableMarker "^[|:][\[\-\] ]"
+" Tables cannot start with a column
+syntax match scdocTableError "^:"
+
+syntax region scdocTable matchgroup=scdocTableEntry start="^[\[|\]][\[\-\]<=>]" end="^$" contains=scdocTableEntry,scdocTableError,scdocTableContinuation,scdocBold,scdocUnderline,scdocPre
+syntax match scdocTableError "^.*$" contained
+syntax match scdocTableContinuation "^   \+\S\+" contained
+syntax match scdocTableEntry "^[|:][\[\-\]<=> ]" contained
+syntax match scdocTableError "^[|:][\[\-\]<=> ]\S.*$" contained
 
 syntax region scdocBold concealends matchgroup=scdocBoldDelimiter start="\\\@<!\*" end="\\\@<!\*"
 syntax region scdocUnderline concealends matchgroup=scdocUnderlineDelimiter start="\<\\\@<!_" end="\\\@<!_\>"
 syntax region scdocPre matchgroup=scdocPreDelimiter start="^\t*```" end="^\t*```"
 
-hi link scdocFirstLineValid     Comment
-hi link scdocComment            Comment
-hi link scdocHeader             Title
-hi link scdocOrderedListMarker  Statement
-hi link scdocListMarker         scdocOrderedListMarker
-hi link scdocLineBreak          Special
-hi link scdocTableMarker        Statement
-hi link scdocTableStartMarker   scdocTableMarker
+syntax sync minlines=50
 
-hi link scdocFirstLineError     Error
-hi link scdocCommentError       Error
-hi link scdocHeaderError        Error
-hi link scdocIndentError        Error
+hi default link scdocFirstLineValid     Comment
+hi default link scdocComment            Comment
+hi default link scdocHeader             Title
+hi default link scdocOrderedListMarker  Statement
+hi default link scdocListMarker         scdocOrderedListMarker
+hi default link scdocLineBreak          Special
+hi default link scdocTableSpecifier     Statement
+hi default link scdocTableEntry         Statement
 
-hi link scdocPreDelimiter       Delimiter
+hi default link scdocFirstLineError        Error
+hi default link scdocCommentError          Error
+hi default link scdocHeaderError           Error
+hi default link scdocIndentError           Error
+hi default link scdocTableError            Error
+hi default link scdocTableError Error
 
-hi scdocBold term=bold cterm=bold gui=bold
-hi scdocUnderline term=underline cterm=underline gui=underline
-hi link scdocBoldDelimiter scdocBold
-hi link scdocUnderlineDelimiter scdocUnderline
+hi default link scdocPreDelimiter       Delimiter
+
+hi default scdocBold term=bold cterm=bold gui=bold
+hi default scdocUnderline term=underline cterm=underline gui=underline
+hi default link scdocBoldDelimiter scdocBold
+hi default link scdocUnderlineDelimiter scdocUnderline
